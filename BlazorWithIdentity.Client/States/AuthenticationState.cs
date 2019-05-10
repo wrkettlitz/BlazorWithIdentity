@@ -1,9 +1,6 @@
 ﻿using BlazorWithIdentity.Client.Services.Contracts;
 using BlazorWithIdentity.Shared;
 using Microsoft.JSInterop;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BlazorWithIdentity.Client.States
@@ -47,6 +44,5 @@ namespace BlazorWithIdentity.Client.States
             userInfo = await _authorizeApi.GetUserInfo();
             return userInfo;
         }
-
     }
 }

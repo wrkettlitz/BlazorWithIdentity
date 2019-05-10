@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BlazorWithIdentity.Shared
+﻿namespace BlazorWithIdentity.Shared
 {
     public class UserInfo
     {
-        public string Username {get; set;}
+        public string Username { get; set; }
     }
 }

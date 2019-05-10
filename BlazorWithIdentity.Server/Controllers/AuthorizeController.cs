@@ -3,8 +3,6 @@ using BlazorWithIdentity.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,9 +25,9 @@ namespace BlazorWithIdentity.Server.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginParameters parameters)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState.Values.SelectMany(state => state.Errors)
-                                                                       .Select(error => error.ErrorMessage)
-                                                                       .FirstOrDefault());
+            if (!ModelState.IsValid) return BadRequest(ModelState.Values.SelectMany(state => state.Errors)
+                                                                        .Select(error => error.ErrorMessage)
+                                                                        .FirstOrDefault());
 
             var user = await _userManager.FindByNameAsync(parameters.UserName);
             if (user == null) return BadRequest("User does not exist");
@@ -40,7 +38,6 @@ namespace BlazorWithIdentity.Server.Controllers
 
             return Ok(BuildUserInfo(user));
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterParameters parameters)
@@ -75,7 +72,6 @@ namespace BlazorWithIdentity.Server.Controllers
             var user = await _userManager.GetUserAsync(HttpContext.User);
             return BuildUserInfo(user);
         }
-
 
         private UserInfo BuildUserInfo(ApplicationUser user)
         {
